@@ -1,12 +1,14 @@
+Tired of losing to spies all the time?  The cutting edge U.S. Army's Reddisk 1.3 Cloud Deployment uses semantic technology to identify and prevent terrorist activites across the globe.  We can use the same technology to find those pesky spies!
+
 Requirements:
 
 -Knowledge of Resistance: http://en.wikipedia.org/wiki/The_Resistance_(game)
--Protege, and knowledge of either RDFS, OWL, or Protege usage.
--Any other reasoner deployments capable of loading owl files.
+-Protege (http://protege.stanford.edu/), or other reasoner deployments capable of loading owl files.
+
 
 Intructions:
 
-Load ResistanceOntology.owk into protege and run the Hermit reasoner.
+Load ResistanceOntology.owl into protege and run the Hermit reasoner.
 This ontology comes with example instance data including a real life Resistance Match!
 See the Usage section below.
 
@@ -43,7 +45,7 @@ Thing
 			ResistanceVote
 			VouchedVote
 
-RDFS equivalence relations:
+OWL equivalence relations:
 
 SpyVote = belongsTo some Spy
 FailVote = hasVoteValue "fail"
@@ -70,8 +72,7 @@ For each voting event create a VotingEvent resource
 		Add a belongsTo ${player} property for each vote.
 	Add a containsVote only (${ list of vote resources cast this round}) to the VotingEvent property.
 
-For each mission/check cards there is an associated property you can assign to each player resource.
-
+For each mission/check cards there is an associated property you can assign to the appropriate player resource.
 	AccusesPlayer is when one player checks another character's card and calls them a spy.
 	VouchesPlayer is when one player checks another player's card and calls them resistance.
 	AccusesVote is when one player checks another player's cast vote and calls it a fail vote.
