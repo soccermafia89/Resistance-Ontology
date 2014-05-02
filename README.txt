@@ -1,5 +1,6 @@
 Requirements:
 
+-Knowledge of Resistance: http://en.wikipedia.org/wiki/The_Resistance_(game)
 -Protege
 -Knowledge of how to use protege
 -Any other reasoner deployments capable of loading owl files.
