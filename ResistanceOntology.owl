@@ -1,0 +1,799 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY voting_normal "http://ae.org/voting_normal#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY simple_voting "http://www.semanticweb.org/alex/ontologies/2013/8/simple_voting#" >
+    <!ENTITY untitled-ontology-12 "http://www.semanticweb.org/alex/ontologies/2013/8/untitled-ontology-12#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/alex/ontologies/2013/8/untitled-ontology-12#"
+     xml:base="http://www.semanticweb.org/alex/ontologies/2013/8/untitled-ontology-12"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:untitled-ontology-12="http://www.semanticweb.org/alex/ontologies/2013/8/untitled-ontology-12#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:simple_voting="http://www.semanticweb.org/alex/ontologies/2013/8/simple_voting#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:voting_normal="http://ae.org/voting_normal#">
+    <owl:Ontology rdf:about="http://ae.org/voting_normal"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ae.org/voting_normal#accusesPlayer -->
+
+    <owl:ObjectProperty rdf:about="&voting_normal;accusesPlayer">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:domain rdf:resource="&voting_normal;Player"/>
+        <rdfs:range rdf:resource="&voting_normal;Player"/>
+        <owl:inverseOf rdf:resource="&voting_normal;playerAccusedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ae.org/voting_normal#accusesVote -->
+
+    <owl:ObjectProperty rdf:about="&voting_normal;accusesVote">
+        <rdfs:domain rdf:resource="&voting_normal;Player"/>
+        <rdfs:range rdf:resource="&voting_normal;Vote"/>
+        <owl:inverseOf rdf:resource="&voting_normal;voteAccusedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ae.org/voting_normal#belongsTo -->
+
+    <owl:ObjectProperty rdf:about="&voting_normal;belongsTo">
+        <rdfs:range rdf:resource="&voting_normal;Player"/>
+        <rdfs:domain rdf:resource="&voting_normal;Vote"/>
+        <owl:inverseOf rdf:resource="&voting_normal;castsVote"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ae.org/voting_normal#castsVote -->
+
+    <owl:ObjectProperty rdf:about="&voting_normal;castsVote">
+        <rdfs:domain rdf:resource="&voting_normal;Player"/>
+        <rdfs:range rdf:resource="&voting_normal;Vote"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ae.org/voting_normal#containsVote -->
+
+    <owl:ObjectProperty rdf:about="&voting_normal;containsVote">
+        <rdfs:range rdf:resource="&voting_normal;Vote"/>
+        <rdfs:domain rdf:resource="&voting_normal;VotingEvent"/>
+        <owl:inverseOf rdf:resource="&voting_normal;takesPartIn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ae.org/voting_normal#hasMember -->
+
+    <owl:ObjectProperty rdf:about="&voting_normal;hasMember">
+        <rdfs:domain rdf:resource="&voting_normal;Group"/>
+        <rdfs:range rdf:resource="&voting_normal;Player"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ae.org/voting_normal#playerAccusedBy -->
+
+    <owl:ObjectProperty rdf:about="&voting_normal;playerAccusedBy">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:range rdf:resource="&voting_normal;Player"/>
+        <rdfs:domain rdf:resource="&voting_normal;Player"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ae.org/voting_normal#playerVouchedBy -->
+
+    <owl:ObjectProperty rdf:about="&voting_normal;playerVouchedBy">
+        <rdfs:domain rdf:resource="&voting_normal;Player"/>
+        <rdfs:range rdf:resource="&voting_normal;Player"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ae.org/voting_normal#takesPartIn -->
+
+    <owl:ObjectProperty rdf:about="&voting_normal;takesPartIn">
+        <rdfs:domain rdf:resource="&voting_normal;Vote"/>
+        <rdfs:range rdf:resource="&voting_normal;VotingEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ae.org/voting_normal#voteAccusedBy -->
+
+    <owl:ObjectProperty rdf:about="&voting_normal;voteAccusedBy">
+        <rdfs:range rdf:resource="&voting_normal;Player"/>
+        <rdfs:domain rdf:resource="&voting_normal;Vote"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ae.org/voting_normal#voteVouchedBy -->
+
+    <owl:ObjectProperty rdf:about="&voting_normal;voteVouchedBy">
+        <rdfs:range rdf:resource="&voting_normal;Player"/>
+        <rdfs:domain rdf:resource="&voting_normal;Vote"/>
+        <owl:inverseOf rdf:resource="&voting_normal;vouchesVote"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ae.org/voting_normal#vouchesPlayer -->
+
+    <owl:ObjectProperty rdf:about="&voting_normal;vouchesPlayer">
+        <rdfs:domain rdf:resource="&voting_normal;Player"/>
+        <rdfs:range rdf:resource="&voting_normal;Player"/>
+        <owl:inverseOf rdf:resource="&voting_normal;playerVouchedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ae.org/voting_normal#vouchesVote -->
+
+    <owl:ObjectProperty rdf:about="&voting_normal;vouchesVote">
+        <rdfs:domain rdf:resource="&voting_normal;Player"/>
+        <rdfs:range rdf:resource="&voting_normal;Vote"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ae.org/voting_normal#hasVoteValue -->
+
+    <owl:DatatypeProperty rdf:about="&voting_normal;hasVoteValue">
+        <rdfs:domain rdf:resource="&voting_normal;Vote"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first>fail</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first>success</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ae.org/voting_normal#AccusedSpy -->
+
+    <owl:Class rdf:about="&voting_normal;AccusedSpy">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;playerAccusedBy"/>
+                <owl:someValuesFrom rdf:resource="&voting_normal;Resistance"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&voting_normal;Spy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ae.org/voting_normal#AccusedVote -->
+
+    <owl:Class rdf:about="&voting_normal;AccusedVote">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;voteAccusedBy"/>
+                <owl:someValuesFrom rdf:resource="&voting_normal;Resistance"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&voting_normal;FailVote"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ae.org/voting_normal#FailVote -->
+
+    <owl:Class rdf:about="&voting_normal;FailVote">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;hasVoteValue"/>
+                <owl:hasValue>fail</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&voting_normal;SpyVote"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ae.org/voting_normal#Group -->
+
+    <owl:Class rdf:about="&voting_normal;Group"/>
+    
+
+
+    <!-- http://ae.org/voting_normal#Player -->
+
+    <owl:Class rdf:about="&voting_normal;Player">
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&voting_normal;Resistance"/>
+            <rdf:Description rdf:about="&voting_normal;Spy"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ae.org/voting_normal#PlayerLyingSpy -->
+
+    <owl:Class rdf:about="&voting_normal;PlayerLyingSpy">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;vouchesPlayer"/>
+                <owl:someValuesFrom rdf:resource="&voting_normal;Spy"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&voting_normal;Spy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ae.org/voting_normal#Resistance -->
+
+    <owl:Class rdf:about="&voting_normal;Resistance">
+        <rdfs:subClassOf rdf:resource="&voting_normal;Player"/>
+        <owl:disjointWith rdf:resource="&voting_normal;Spy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ae.org/voting_normal#ResistanceVote -->
+
+    <owl:Class rdf:about="&voting_normal;ResistanceVote">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;belongsTo"/>
+                <owl:someValuesFrom rdf:resource="&voting_normal;Resistance"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&voting_normal;SuccessVote"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ae.org/voting_normal#Spy -->
+
+    <owl:Class rdf:about="&voting_normal;Spy">
+        <rdfs:subClassOf rdf:resource="&voting_normal;Player"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ae.org/voting_normal#SpyVote -->
+
+    <owl:Class rdf:about="&voting_normal;SpyVote">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;belongsTo"/>
+                <owl:someValuesFrom rdf:resource="&voting_normal;Spy"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&voting_normal;Vote"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ae.org/voting_normal#SuccessVote -->
+
+    <owl:Class rdf:about="&voting_normal;SuccessVote">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;hasVoteValue"/>
+                <owl:hasValue>success</owl:hasValue>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&voting_normal;Vote"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ae.org/voting_normal#Vote -->
+
+    <owl:Class rdf:about="&voting_normal;Vote"/>
+    
+
+
+    <!-- http://ae.org/voting_normal#VoteLyingSpy -->
+
+    <owl:Class rdf:about="&voting_normal;VoteLyingSpy">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;vouchesVote"/>
+                <owl:someValuesFrom rdf:resource="&voting_normal;FailVote"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&voting_normal;Spy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ae.org/voting_normal#VotingEvent -->
+
+    <owl:Class rdf:about="&voting_normal;VotingEvent"/>
+    
+
+
+    <!-- http://ae.org/voting_normal#VouchedResistance -->
+
+    <owl:Class rdf:about="&voting_normal;VouchedResistance">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;playerVouchedBy"/>
+                <owl:someValuesFrom rdf:resource="&voting_normal;Resistance"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&voting_normal;Resistance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ae.org/voting_normal#VouchedVote -->
+
+    <owl:Class rdf:about="&voting_normal;VouchedVote">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;voteVouchedBy"/>
+                <owl:someValuesFrom rdf:resource="&voting_normal;Resistance"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&voting_normal;SuccessVote"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ae.org/voting_normal#Alex -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Alex"/>
+    
+
+
+    <!-- http://ae.org/voting_normal#Gabe -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Gabe">
+        <voting_normal:vouchesPlayer rdf:resource="&voting_normal;James"/>
+        <voting_normal:accusesPlayer rdf:resource="&voting_normal;Liban"/>
+        <voting_normal:vouchesVote rdf:resource="&voting_normal;Vote4Raj"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Hersh -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Hersh">
+        <voting_normal:vouchesPlayer rdf:resource="&voting_normal;James"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#James -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;James"/>
+    
+
+
+    <!-- http://ae.org/voting_normal#Liban -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Liban"/>
+    
+
+
+    <!-- http://ae.org/voting_normal#Liz -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Liz">
+        <voting_normal:vouchesPlayer rdf:resource="&voting_normal;Raj"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Match -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Match">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;hasMember"/>
+                <owl:onClass rdf:resource="&voting_normal;Spy"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">3</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;hasMember"/>
+                <owl:onClass rdf:resource="&voting_normal;Resistance"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">4</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;hasMember"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&voting_normal;Raj"/>
+                            <rdf:Description rdf:about="&voting_normal;Liz"/>
+                            <rdf:Description rdf:about="&voting_normal;Gabe"/>
+                            <rdf:Description rdf:about="&voting_normal;Hersh"/>
+                            <rdf:Description rdf:about="&voting_normal;Liban"/>
+                            <rdf:Description rdf:about="&voting_normal;Alex"/>
+                            <rdf:Description rdf:about="&voting_normal;James"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Raj -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Raj"/>
+    
+
+
+    <!-- http://ae.org/voting_normal#Vote1Alex -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Vote1Alex">
+        <voting_normal:belongsTo rdf:resource="&voting_normal;Alex"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Vote1Liban -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Vote1Liban">
+        <voting_normal:belongsTo rdf:resource="&voting_normal;Liban"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Vote2James -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Vote2James">
+        <voting_normal:belongsTo rdf:resource="&voting_normal;James"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Vote2Liz -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Vote2Liz">
+        <voting_normal:belongsTo rdf:resource="&voting_normal;Liz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Vote2Raj -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Vote2Raj">
+        <voting_normal:belongsTo rdf:resource="&voting_normal;Raj"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Vote3James -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Vote3James">
+        <voting_normal:belongsTo rdf:resource="&voting_normal;James"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Vote3Liz -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Vote3Liz">
+        <voting_normal:belongsTo rdf:resource="&voting_normal;Liz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Vote3Raj -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Vote3Raj">
+        <voting_normal:belongsTo rdf:resource="&voting_normal;Raj"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Vote4Hersh -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Vote4Hersh">
+        <voting_normal:belongsTo rdf:resource="&voting_normal;Hersh"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Vote4James -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Vote4James">
+        <voting_normal:belongsTo rdf:resource="&voting_normal;James"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Vote4Liz -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Vote4Liz">
+        <voting_normal:belongsTo rdf:resource="&voting_normal;Liz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#Vote4Raj -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;Vote4Raj">
+        <voting_normal:belongsTo rdf:resource="&voting_normal;Raj"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#VotingEvent1 -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;VotingEvent1">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&voting_normal;hasVoteValue"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:onClass>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&voting_normal;hasVoteValue"/>
+                        <owl:hasValue>fail</owl:hasValue>
+                    </owl:Restriction>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:onClass>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&voting_normal;hasVoteValue"/>
+                        <owl:hasValue>success</owl:hasValue>
+                    </owl:Restriction>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&voting_normal;Vote1Liban"/>
+                            <rdf:Description rdf:about="&voting_normal;Vote1Alex"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#VotingEvent2 -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;VotingEvent2">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&voting_normal;hasVoteValue"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&voting_normal;Vote2Raj"/>
+                            <rdf:Description rdf:about="&voting_normal;Vote2James"/>
+                            <rdf:Description rdf:about="&voting_normal;Vote2Liz"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:onClass>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&voting_normal;hasVoteValue"/>
+                        <owl:hasValue>success</owl:hasValue>
+                    </owl:Restriction>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">3</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#VotingEvent3 -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;VotingEvent3">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&voting_normal;Vote3Liz"/>
+                            <rdf:Description rdf:about="&voting_normal;Vote3James"/>
+                            <rdf:Description rdf:about="&voting_normal;Vote3Raj"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&voting_normal;hasVoteValue"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:onClass>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&voting_normal;hasVoteValue"/>
+                        <owl:hasValue>success</owl:hasValue>
+                    </owl:Restriction>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">3</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ae.org/voting_normal#VotingEvent4 -->
+
+    <owl:NamedIndividual rdf:about="&voting_normal;VotingEvent4">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&voting_normal;hasVoteValue"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&voting_normal;Vote4Hersh"/>
+                            <rdf:Description rdf:about="&voting_normal;Vote4Raj"/>
+                            <rdf:Description rdf:about="&voting_normal;Vote4James"/>
+                            <rdf:Description rdf:about="&voting_normal;Vote4Liz"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:onClass>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&voting_normal;hasVoteValue"/>
+                        <owl:hasValue>fail</owl:hasValue>
+                    </owl:Restriction>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&voting_normal;containsVote"/>
+                <owl:onClass>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&voting_normal;hasVoteValue"/>
+                        <owl:hasValue>success</owl:hasValue>
+                    </owl:Restriction>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
