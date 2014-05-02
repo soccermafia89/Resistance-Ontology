@@ -1,13 +1,12 @@
 Requirements:
 
 -Knowledge of Resistance: http://en.wikipedia.org/wiki/The_Resistance_(game)
--Protege
--Knowledge of how to use protege
+-Protege, and knowledge of either RDFS, OWL, or Protege usage.
 -Any other reasoner deployments capable of loading owl files.
 
 Intructions:
 
-Run the Hermit reasoner that comes with protege.
+Load ResistanceOntology.owk into protege and run the Hermit reasoner.
 This ontology comes with example instance data including a real life Resistance Match!
 See the Usage section below.
 
